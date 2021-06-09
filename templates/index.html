@@ -19,17 +19,17 @@ body {
   min-height: 100vh;
   font-family: "Lato", sans-serif;
   line-height: 1.5;
-  color: #111;
+  background-color: rgb(207, 224, 235);
 }
 
 main {
   max-width: 720px;
   width: 100%;
-  border: 2.5px solid #330867;
+  border: 2.5px solid #225505;
   border-radius: 2.5px;
   box-shadow: 0 10px 20px rgba(17, 17, 17, 0.125),
     0 5px 5px rgba(17, 17, 17, 0.25);
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(to top, #ad97a4 0%, #6fb1e7 100%);
 }
 
 h1 {
@@ -60,9 +60,13 @@ button {
   flex: 1;
   background-color: transparent;
   color: white;
+  font-size: 15px;
  
 }
-
+#shorten:hover{
+  color: black;
+  
+}
 section {
   min-height: 120px;
   text-align: center;
@@ -75,7 +79,7 @@ section {
   <h1>URL Shortener</h1>
   <form id="post-form">
     {% csrf_token %}
-  <input type="text" name="link" id="link" placeholder="Enter URL here">
+  <input type="text" name="link" id="link" placeholder="Enter the URL here...">
   <div class="buttons">
     <button type="submit" id="shorten">Shorten</button>
   </div>
@@ -97,7 +101,7 @@ section {
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
       success: function(data){
-        $('h2').html("www.surls.ga/"+data)
+        $('h2').html("localhost:8000/"+data)
       }
     });
   });
